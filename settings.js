@@ -127,7 +127,7 @@ module.exports = {
     //        permissions: "*"
     //    }]
 	//},
-	adminAuth: require('./red/dominoAuthentication'),
+	adminAuth: require('./dominoAuthentication'),
 
     // To password protect the node-defined HTTP endpoints (httpNodeRoot), or
     // the static content (httpStatic), the following properties can be used.
@@ -259,12 +259,15 @@ module.exports = {
         },
 		page: {
 			title: "IBM Think 2019 Demo",
-			favicon: "red/images/dominoV10.png",
-			css: "red/css/dominoTheme.css"
+			favicon: "/data/dominoV10.png",
+			css: "/data/dominoTheme.css"
 		},
 		header: {
 			title: "IBM Think 2019 Demo",
-			image: "red/images/dominoV10.png",
+			image: "/data/dominoV10.png",
+		},
+		login: {
+			image: "/data/dominoV10_large.jpg" // a 256x256 image
 		}
     },
 }

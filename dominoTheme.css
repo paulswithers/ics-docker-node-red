@@ -19,9 +19,6 @@
 #btn-deploy.disabled {
 	color: #ffffff !important;
 }
-#node-dialog-login-image {
-	content:url("https://1.cms.s81c.com/sites/default/files/2018-11-28/Domino%20logo%20homepage_4.jpg");
-}
 #node-dialog-login {
 	background-color: #FFDC02;
 }

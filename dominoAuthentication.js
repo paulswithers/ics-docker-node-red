@@ -14,7 +14,7 @@ module.exports = {
 		var credentialsBase64 = Buffer.from(username + ":" + password).toString('base64');
         var params = {
             method: "GET",
-            url: "http://hermes.intec.co.uk/names.nsf/$icon",
+            url: "http://SET_HOST_NAME/names.nsf/$icon",
 			headers: {'Authorization' : 'Basic ' + credentialsBase64}
         };
 
