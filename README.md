@@ -1,28 +1,30 @@
 ## NODE-RED DEMO FOR ICS
 
-This is a demo Docker image customised for IBM Think 2019 demo:
+This is a demo Docker image customised for Domino V10:
 - with DominoV10 look and feel
 - installs domino-db npm package
 - installs axios for authentication to Domino server
 - installs Node-RED nodes for Domino
 - installs Node-RED nodes for Connections
+- assumes anonymous access via Node.JS to Domino (the nodes, as of beginning Jan 2019 do not use client certificate or IAM access)
 
 ### IMPORTANT PREREQUISITE
 1. Extract the downloaded App Dev Pack to a temporay location
 2. Copy the domino-domino-db-1.1.0.tgz file from the extracted App Dev Pack into this folder
-3. Change the hostname in the URL in line 17 of "dominoAuthentication.js"
-4. Install Proton on your Domino server
-5. Copy the node-demo.nsf into your Domino server, sign it and set Anonymous access to Editor
-6. Start the proton task on your Domino server
+3. Install Proton on your Domino server and configure, according to the documentation
+4. Copy the node-demo.nsf into your Domino server, sign it and set Anonymous access to Editor
+5. Start the proton task on your Domino server
+
+This expects the GA release of the App Dev Pack from December 2018. It may not work with a different Proton version and different domino-domino-db version copied in.
 
 ### BUILDING THE IMAGE
 1. Start Docker on your machine
 2. Open a command line terminal
 3. Change directories to this folder
-4. Issue the command `docker build -t ibm-think/node-red-docker:v8 .` Remember the full stop at the end or it won't run. It builds node-red and installs additional modules, then switches to copying files into the data folder. `tar -xf` extracts the zipfile fully, so all we have is the `package` folder.
+4. Issue the command `docker build -t ics/node-red-docker:v8 .` Remember the full stop at the end or it won't run. It builds node-red and installs additional modules, then switches to copying files into the data folder. `tar -xf` extracts the zipfile fully, so all we have is the `package` folder.
 
 ### RUNNING A CONTAINER
-From the open command line terminal, issue the command `docker run -it -p 1880:1880 ibm-think/node-red-docker:v8`. This will create a container letting Docker choose a name. To give it a specific name `docker run -it -p 1880:1880 --name CONTAINER_NAME ibm-think/node-red-docker:v8`
+From the open command line terminal, issue the command `docker run -it -p 1880:1880 -e "AUTHENTICATION_HOST=http://MY.HOST.COM" ics/node-red-docker:v8`. This will create a container letting Docker choose a name, accessible from localhost:1880 and authenticating against a Domino server via http at "MY.HOST.COM". To give it a specific name `docker run -it -p 1880:1880 -e "AUTHENTICATION_HOST=http://MY.HOST.COM" --name CONTAINER_NAME ics/node-red-docker:v8`
 
 Or, if you're in Visual Studio Code with the Docker extension, just right-click the image in the Docker Explorer and choose "Run".
 
