@@ -258,12 +258,12 @@ module.exports = {
 			enabled: true
         },
 		page: {
-			title: "IBM Think 2019 Demo",
+			title: "IBM DominoV10 Demo",
 			favicon: "/data/dominoV10.png",
 			css: "/data/dominoTheme.css"
 		},
 		header: {
-			title: "IBM Think 2019 Demo",
+			title: "IBM DominoV10 Demo",
 			image: "/data/dominoV10.png",
 		},
 		login: {
