@@ -2,6 +2,7 @@ const axios = require('axios');
 
 module.exports = {
   type: "credentials",
+  sessionExpiryTime: 86400,
   users: function(username) {
       return new Promise(function(resolve) {
         var user = { username: username, permissions: "*" };
