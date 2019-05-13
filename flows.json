@@ -1,0 +1,2205 @@
+[
+    {
+        "id": "bb2c546e.21a518",
+        "type": "tab",
+        "label": "Startup Check",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "a7bd6505.eb6c68",
+        "type": "tab",
+        "label": "Domino",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "6d533073.7afe6",
+        "type": "tab",
+        "label": "World Maps",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "737e7a79.2aeb44",
+        "type": "tab",
+        "label": "Connections",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "6e133d84.5c5714",
+        "type": "tab",
+        "label": "Dashboard",
+        "disabled": false,
+        "info": "## Dashboard Flow\nThis flow uses Domino to generate dashboard charts. NOTE: The dashboard is not one instance per browser session, but one instance per Node-RED server. In XPages terms, that means applicationScope vs sessionScope. So if it includes a drop-down list to filter, the drop-down list value selected is the same for **all** users."
+    },
+    {
+        "id": "8d5cc2c9.642e6",
+        "type": "dominodb",
+        "z": "",
+        "D10_server": "172.18.0.2",
+        "D10_db": "node-demo.nsf",
+        "D10_port": "3002",
+        "D10_isSecure": false,
+        "D10_rootCert": "",
+        "D10_clientCert": "",
+        "D10_clientKey": "",
+        "displayName": "Node-Demo-Peleus"
+    },
+    {
+        "id": "ebe2f5c.4368b08",
+        "type": "ICLogin2",
+        "z": "",
+        "serverType": "cloud",
+        "cloudServer": "america",
+        "server": "https://myserver.mydomain.com",
+        "authType": "basic",
+        "displayName": "Paul Withers"
+    },
+    {
+        "id": "ac3e4e7e.8989c",
+        "type": "ui_tab",
+        "z": "",
+        "name": "By State",
+        "icon": "face",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "b3c1b59d.4e2fe",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "ce511f58.8cc078",
+        "type": "ui_group",
+        "z": "",
+        "name": "By State",
+        "tab": "ac3e4e7e.8989c",
+        "disp": true,
+        "width": "24",
+        "collapse": false
+    },
+    {
+        "id": "8ddce70.86ba818",
+        "type": "ui_tab",
+        "z": "",
+        "name": "By City",
+        "icon": "location_city",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "c98f74b.c93b288",
+        "type": "ui_group",
+        "z": "",
+        "name": "By City",
+        "tab": "8ddce70.86ba818",
+        "order": 1,
+        "disp": true,
+        "width": "24",
+        "collapse": false
+    },
+    {
+        "id": "ab5aa218.fe414",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "c98f74b.c93b288",
+        "order": 2,
+        "width": "2",
+        "height": 1
+    },
+    {
+        "id": "d4a281a8.16394",
+        "type": "catch",
+        "z": "a7bd6505.eb6c68",
+        "name": "",
+        "scope": null,
+        "x": 435.00000762939453,
+        "y": 345.00000381469727,
+        "wires": [
+            [
+                "b8af5ba2.b6b258"
+            ]
+        ]
+    },
+    {
+        "id": "b8af5ba2.b6b258",
+        "type": "debug",
+        "z": "a7bd6505.eb6c68",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 603.0000076293945,
+        "y": 344.00000381469727,
+        "wires": []
+    },
+    {
+        "id": "f5481132.96b22",
+        "type": "inject",
+        "z": "a7bd6505.eb6c68",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 96,
+        "y": 461.0000057220459,
+        "wires": [
+            [
+                "5277b43f.cf390c"
+            ]
+        ]
+    },
+    {
+        "id": "5277b43f.cf390c",
+        "type": "D10_getDocuments",
+        "z": "a7bd6505.eb6c68",
+        "application": "8d5cc2c9.642e6",
+        "queryOrId": "query",
+        "query": "State = 'CA' AND Form = 'Contact'",
+        "defaultOptions": true,
+        "maxViewEntries": 0,
+        "maxDocuments": 0,
+        "maxMillisecs": 0,
+        "startValue": 0,
+        "countValue": 0,
+        "displayResults": "All",
+        "itemNames": "FirstName,LastName,City,State",
+        "onError": "ON_ERROR_ABORT_REMAINING",
+        "unids": "",
+        "name": "",
+        "x": 278.00000381469727,
+        "y": 460.0000047683716,
+        "wires": [
+            [
+                "43a6901d.c3d62"
+            ]
+        ]
+    },
+    {
+        "id": "c14e44cd.221648",
+        "type": "file",
+        "z": "a7bd6505.eb6c68",
+        "name": "",
+        "filename": "/tmp/output.csv",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "x": 547.0000076293945,
+        "y": 452.0000057220459,
+        "wires": [
+            [
+                "8c6b4c3f.197f7"
+            ]
+        ]
+    },
+    {
+        "id": "8c6b4c3f.197f7",
+        "type": "debug",
+        "z": "a7bd6505.eb6c68",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 733.0000114440918,
+        "y": 451.0000047683716,
+        "wires": []
+    },
+    {
+        "id": "43a6901d.c3d62",
+        "type": "function",
+        "z": "a7bd6505.eb6c68",
+        "name": "Get docs as payload",
+        "func": "msg.payload = msg.DDB_docs;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 341,
+        "y": 538.0000066757202,
+        "wires": [
+            [
+                "99f978d.9ab9188"
+            ]
+        ]
+    },
+    {
+        "id": "99f978d.9ab9188",
+        "type": "json-2-csv",
+        "z": "a7bd6505.eb6c68",
+        "name": "",
+        "x": 602.0000076293945,
+        "y": 537.0000057220459,
+        "wires": [
+            [
+                "c14e44cd.221648"
+            ]
+        ]
+    },
+    {
+        "id": "8c5e7a4a.81e618",
+        "type": "inject",
+        "z": "bb2c546e.21a518",
+        "name": "",
+        "topic": "",
+        "payload": "Started!",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 100,
+        "y": 80,
+        "wires": [
+            [
+                "178f1b15.845715"
+            ]
+        ]
+    },
+    {
+        "id": "119cdca3.2ff643",
+        "type": "debug",
+        "z": "bb2c546e.21a518",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 640,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "178f1b15.845715",
+        "type": "D10_getDocuments",
+        "z": "bb2c546e.21a518",
+        "application": "8d5cc2c9.642e6",
+        "queryOrId": "query",
+        "query": "Form = 'Contact'",
+        "defaultOptions": true,
+        "maxViewEntries": 0,
+        "maxDocuments": 0,
+        "maxMillisecs": 0,
+        "startValue": 0,
+        "countValue": 0,
+        "displayResults": "Default",
+        "itemNames": "firstName",
+        "onError": "ON_ERROR_ABORT_REMAINING",
+        "unids": "",
+        "name": "",
+        "x": 280,
+        "y": 80,
+        "wires": [
+            [
+                "c6a26be4.5c45e8"
+            ]
+        ]
+    },
+    {
+        "id": "f4bff3e5.63aec",
+        "type": "catch",
+        "z": "bb2c546e.21a518",
+        "name": "",
+        "scope": null,
+        "x": 180,
+        "y": 200,
+        "wires": [
+            [
+                "c00cf646.b8d128"
+            ]
+        ]
+    },
+    {
+        "id": "c00cf646.b8d128",
+        "type": "debug",
+        "z": "bb2c546e.21a518",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "error",
+        "x": 370,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "c6a26be4.5c45e8",
+        "type": "function",
+        "z": "bb2c546e.21a518",
+        "name": "All's well?",
+        "func": "if ('undefined' === msg.DDB_result) {\n    node.error(\"Houston, we have a problem!\")\n}\nif (msg.DDB_result.errors > 0) {\n    node.error(\"Houston, we have a problem!\")\n}\nmsg.payload = \"Domino server running, connection successful!\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 460,
+        "y": 80,
+        "wires": [
+            [
+                "119cdca3.2ff643"
+            ]
+        ]
+    },
+    {
+        "id": "d320f9ab.49add8",
+        "type": "comment",
+        "z": "bb2c546e.21a518",
+        "name": "Check connection to Domino",
+        "info": "Try accessing node-demo.nsf on Domino server. Runs at Node-RED startup.",
+        "x": 140,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "25b13a61.419476",
+        "type": "comment",
+        "z": "bb2c546e.21a518",
+        "name": "Print Error to Log",
+        "info": "",
+        "x": 200,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "9d949b5e.893078",
+        "type": "catch",
+        "z": "6d533073.7afe6",
+        "name": "",
+        "scope": null,
+        "x": 84,
+        "y": 30,
+        "wires": [
+            [
+                "62223c3a.ed2224"
+            ]
+        ]
+    },
+    {
+        "id": "62223c3a.ed2224",
+        "type": "debug",
+        "z": "6d533073.7afe6",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 248,
+        "y": 31,
+        "wires": []
+    },
+    {
+        "id": "c059f680.1e03b8",
+        "type": "http request",
+        "z": "6d533073.7afe6",
+        "name": "States",
+        "method": "GET",
+        "ret": "obj",
+        "url": "https://gist.githubusercontent.com/jpriebe/d62a45e29f24e843c974/raw/b1d3066d245e742018bce56e41788ac7afa60e29/us_state_capitals.json",
+        "tls": "",
+        "x": 270,
+        "y": 140,
+        "wires": [
+            [
+                "1c30bb7d.7a0fa5"
+            ]
+        ]
+    },
+    {
+        "id": "1c30bb7d.7a0fa5",
+        "type": "function",
+        "z": "6d533073.7afe6",
+        "name": "",
+        "func": "flow.set('stateLongLat',msg.payload);\nflow.set('count',0);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 450,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9f383687.02f328",
+        "type": "function",
+        "z": "6d533073.7afe6",
+        "name": "",
+        "func": "msg.DDB_query = \"State = '\" + msg.payload + \"'\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 125,
+        "y": 292,
+        "wires": [
+            [
+                "8efecb84.f21748"
+            ]
+        ]
+    },
+    {
+        "id": "3570296d.bc5a36",
+        "type": "comment",
+        "z": "6d533073.7afe6",
+        "name": "STARTUP: Get a list of states and latitudes / longitudes",
+        "info": "",
+        "x": 220,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "79ce4fa7.923c7",
+        "type": "comment",
+        "z": "6d533073.7afe6",
+        "name": "Query Domino For Each",
+        "info": "",
+        "x": 128,
+        "y": 252,
+        "wires": []
+    },
+    {
+        "id": "8efecb84.f21748",
+        "type": "D10_getDocuments",
+        "z": "6d533073.7afe6",
+        "application": "8d5cc2c9.642e6",
+        "queryOrId": "query",
+        "query": "",
+        "defaultOptions": true,
+        "maxViewEntries": 0,
+        "maxDocuments": 0,
+        "maxMillisecs": 0,
+        "startValue": 0,
+        "countValue": 0,
+        "displayResults": "All",
+        "itemNames": "firstName,lastName,state",
+        "onError": "ON_ERROR_CONTINUE",
+        "unids": "",
+        "name": "",
+        "x": 317,
+        "y": 292,
+        "wires": [
+            [
+                "bff6ce91.cc6b4"
+            ]
+        ]
+    },
+    {
+        "id": "bff6ce91.cc6b4",
+        "type": "function",
+        "z": "6d533073.7afe6",
+        "name": "",
+        "func": "var obj = {};\nvar stateLongLongData = flow.get(\"stateLongLat\")[msg.payload];\nobj.name = stateLongLongData.name;\nobj.label = obj.name + \": \" + msg.DDB_docs.length.toString();\nobj.lat = stateLongLongData.lat;\nobj.lon = stateLongLongData.long;\nobj.icon = \"globe\";\nobj.iconColor = \"#FFDC02\";\nmsg.payload = obj;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 493,
+        "y": 291,
+        "wires": [
+            [
+                "f7149100.46197"
+            ]
+        ]
+    },
+    {
+        "id": "db5bd1d4.cc3d",
+        "type": "inject",
+        "z": "6d533073.7afe6",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 90,
+        "y": 140,
+        "wires": [
+            [
+                "c059f680.1e03b8"
+            ]
+        ]
+    },
+    {
+        "id": "f7ed6326.88aea",
+        "type": "function",
+        "z": "6d533073.7afe6",
+        "name": "Get State Keys",
+        "func": "var states = flow.get(\"stateLongLat\");\nmsg.keys = Object.keys(states);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 284,
+        "y": 214,
+        "wires": [
+            [
+                "320bd70d.de84e8"
+            ]
+        ]
+    },
+    {
+        "id": "f1822fba.77942",
+        "type": "http in",
+        "z": "737e7a79.2aeb44",
+        "name": "",
+        "url": "/receiveJson",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 109,
+        "y": 144,
+        "wires": [
+            [
+                "4501ea87.984834"
+            ]
+        ]
+    },
+    {
+        "id": "4501ea87.984834",
+        "type": "function",
+        "z": "737e7a79.2aeb44",
+        "name": "Set FilePath",
+        "func": "if (flow.get('communityId') === undefined) {\n    node.error('Community not set!');\n    msg.payload = 'Community not set!';\n    return [null,msg];\n} else {\n    var result           = '';\n    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';\n    var charactersLength = characters.length;\n    for ( var i = 0; i < 10; i++ ) {\n        result += characters.charAt(Math.floor(Math.random() * charactersLength));\n    }\n    msg.filepath = result + \".xlsx\"; // for creation\n    msg.filename = result + \".xlsx\"; // for Connections\n    msg.communityId = flow.get('communityId');\n    return [msg,null];\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 300,
+        "y": 144,
+        "wires": [
+            [
+                "2aff9e14.5331a2"
+            ],
+            [
+                "b8adf093.f1b5f"
+            ]
+        ]
+    },
+    {
+        "id": "2aff9e14.5331a2",
+        "type": "excel",
+        "z": "737e7a79.2aeb44",
+        "name": "",
+        "file": "",
+        "x": 478,
+        "y": 138,
+        "wires": [
+            [
+                "b954335f.5e657"
+            ]
+        ]
+    },
+    {
+        "id": "f7149100.46197",
+        "type": "worldmap",
+        "z": "6d533073.7afe6",
+        "name": "",
+        "lat": "39.04",
+        "lon": "-95.69",
+        "zoom": "5",
+        "layer": "OSM",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "hide",
+        "hiderightclick": "false",
+        "coords": "deg",
+        "path": "",
+        "x": 674,
+        "y": 290,
+        "wires": []
+    },
+    {
+        "id": "d4540622.c1f128",
+        "type": "worldmap in",
+        "z": "6d533073.7afe6",
+        "name": "",
+        "path": "/worldmap",
+        "x": 80,
+        "y": 215,
+        "wires": [
+            [
+                "f7ed6326.88aea"
+            ]
+        ]
+    },
+    {
+        "id": "320bd70d.de84e8",
+        "type": "bigsplitter",
+        "z": "6d533073.7afe6",
+        "name": "Split States",
+        "property": "keys",
+        "x": 509,
+        "y": 213,
+        "wires": [
+            [
+                "9f383687.02f328"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a1720464.58f6c8",
+        "type": "ICFilePut",
+        "z": "737e7a79.2aeb44",
+        "server": "ebe2f5c.4368b08",
+        "target": "community",
+        "contextRoot": "/connections",
+        "communityId": "",
+        "name": "",
+        "filename": "",
+        "fileTags": "",
+        "fileDesc": "",
+        "fileFolder": "",
+        "x": 292,
+        "y": 266,
+        "wires": [
+            [
+                "4e39ec88.571d44",
+                "8d4122e4.d001a"
+            ]
+        ]
+    },
+    {
+        "id": "b954335f.5e657",
+        "type": "file in",
+        "z": "737e7a79.2aeb44",
+        "name": "",
+        "filename": "",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 93,
+        "y": 238,
+        "wires": [
+            [
+                "a1720464.58f6c8"
+            ]
+        ]
+    },
+    {
+        "id": "e80aa724.09e7d8",
+        "type": "http response",
+        "z": "737e7a79.2aeb44",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 671,
+        "y": 233,
+        "wires": []
+    },
+    {
+        "id": "4e39ec88.571d44",
+        "type": "function",
+        "z": "737e7a79.2aeb44",
+        "name": "",
+        "func": "msg.payload = msg.fileUrl;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 483,
+        "y": 236,
+        "wires": [
+            [
+                "e80aa724.09e7d8"
+            ]
+        ]
+    },
+    {
+        "id": "d69f5b6c.633138",
+        "type": "catch",
+        "z": "737e7a79.2aeb44",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 499,
+        "y": 96,
+        "wires": [
+            [
+                "27113bd7.c54ee4",
+                "b8adf093.f1b5f"
+            ]
+        ]
+    },
+    {
+        "id": "27113bd7.c54ee4",
+        "type": "debug",
+        "z": "737e7a79.2aeb44",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 706,
+        "y": 58,
+        "wires": []
+    },
+    {
+        "id": "b8adf093.f1b5f",
+        "type": "function",
+        "z": "737e7a79.2aeb44",
+        "name": "",
+        "func": "try {\n    msg.payload = error.msg;\n} catch (error) {\n    \n}\nmsg.statusCode = 500;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 647,
+        "y": 172,
+        "wires": [
+            [
+                "e80aa724.09e7d8"
+            ]
+        ]
+    },
+    {
+        "id": "13b4f4e7.5897cb",
+        "type": "ui_dropdown",
+        "z": "6e133d84.5c5714",
+        "name": "",
+        "label": "State",
+        "tooltip": "Please select a state",
+        "place": "Select option",
+        "group": "c98f74b.c93b288",
+        "order": 1,
+        "width": "3",
+        "height": "1",
+        "passthru": true,
+        "options": [
+            {
+                "label": "",
+                "value": "",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "x": 283.5,
+        "y": 410.0000305175781,
+        "wires": [
+            [
+                "5c32d777.f153f8"
+            ]
+        ]
+    },
+    {
+        "id": "36fa200f.421c38",
+        "type": "catch",
+        "z": "6e133d84.5c5714",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 723.5,
+        "y": 80.59999084472656,
+        "wires": [
+            [
+                "777fc425.873364"
+            ]
+        ]
+    },
+    {
+        "id": "777fc425.873364",
+        "type": "debug",
+        "z": "6e133d84.5c5714",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 866.5,
+        "y": 80.19999694824219,
+        "wires": []
+    },
+    {
+        "id": "36705c08.49f71c",
+        "type": "function",
+        "z": "6e133d84.5c5714",
+        "name": "",
+        "func": "msg.options = flow.get('states');\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 103.5,
+        "y": 410.40000915527344,
+        "wires": [
+            [
+                "13b4f4e7.5897cb"
+            ]
+        ]
+    },
+    {
+        "id": "206abcd.f24e3c4",
+        "type": "ui_chart",
+        "z": "6e133d84.5c5714",
+        "name": "Contacts By State",
+        "group": "ce511f58.8cc078",
+        "order": 1,
+        "width": "24",
+        "height": "8",
+        "label": "Contacts By State",
+        "chartType": "bar",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Retrieving data",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": true,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 559.5,
+        "y": 292.800048828125,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "738effe6.3bca28",
+        "type": "function",
+        "z": "6e133d84.5c5714",
+        "name": "",
+        "func": "var obj = {};\nif (msg.DDB_docs[0].form == \"State\") {\n    obj.state = msg.DDB_docs[0].key;\n} else {\n    obj.state = msg.DDB_docs[0].state;\n}\nobj.count = msg.DDB_docs.length - 1;\nmsg.paths[obj.state] = obj;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 842,
+        "y": 180.1999969482422,
+        "wires": [
+            [
+                "49e1c117.9ac49"
+            ]
+        ]
+    },
+    {
+        "id": "cc4844e7.e3c88",
+        "type": "D10_getDocuments",
+        "z": "6e133d84.5c5714",
+        "application": "8d5cc2c9.642e6",
+        "queryOrId": "query",
+        "query": "",
+        "defaultOptions": true,
+        "maxViewEntries": 0,
+        "maxDocuments": 0,
+        "maxMillisecs": 0,
+        "startValue": 0,
+        "countValue": 0,
+        "displayResults": "All",
+        "itemNames": "firstName,lastName,state,key,form",
+        "onError": "ON_ERROR_CONTINUE",
+        "unids": "",
+        "name": "",
+        "x": 622,
+        "y": 181.1999969482422,
+        "wires": [
+            [
+                "738effe6.3bca28"
+            ]
+        ]
+    },
+    {
+        "id": "49e1c117.9ac49",
+        "type": "wait-paths",
+        "z": "6e133d84.5c5714",
+        "name": "",
+        "paths": "",
+        "timeout": "15000",
+        "finalTimeout": "60000",
+        "x": 169.0000457763672,
+        "y": 297.20001220703125,
+        "wires": [
+            [
+                "ce0d4344.037c8"
+            ]
+        ]
+    },
+    {
+        "id": "7d1c8be.4bfd774",
+        "type": "function",
+        "z": "6e133d84.5c5714",
+        "name": "",
+        "func": "msg.DDB_query = \"Key = '\" + msg.array +\"' OR State = '\" + msg.array + \"'\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 405,
+        "y": 181.1999969482422,
+        "wires": [
+            [
+                "cc4844e7.e3c88"
+            ]
+        ]
+    },
+    {
+        "id": "74d5361d.6bd61",
+        "type": "fullsplitter",
+        "z": "6e133d84.5c5714",
+        "name": "",
+        "property": "stateKeys",
+        "x": 148.99998474121094,
+        "y": 144.1999969482422,
+        "wires": [
+            [
+                "7d1c8be.4bfd774"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2267e9ef.b4695e",
+        "type": "function",
+        "z": "6e133d84.5c5714",
+        "name": "",
+        "func": "msg.stateKeys = [];\nmsg.stateNames = [];\nmsg.stateCounts = [];\nvar states = [];\nfor (var elem in msg.DDB_docs) {\n    var key = msg.DDB_docs[elem].key;\n    var name = msg.DDB_docs[elem].name;\n    msg.stateKeys.push(key);\n    msg.stateNames.push(name);\n    var obj = {};\n    obj[name] = key;\n    states.push(obj);\n}\nflow.set('states',states);\nmsg.pathsToWait = msg.stateKeys;\nmsg.paths = {};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 531,
+        "y": 73.19999694824219,
+        "wires": [
+            [
+                "74d5361d.6bd61",
+                "36705c08.49f71c"
+            ]
+        ]
+    },
+    {
+        "id": "491ad777.f80928",
+        "type": "D10_getDocuments",
+        "z": "6e133d84.5c5714",
+        "application": "8d5cc2c9.642e6",
+        "queryOrId": "query",
+        "query": "Form = 'State'",
+        "defaultOptions": true,
+        "maxViewEntries": 0,
+        "maxDocuments": 0,
+        "maxMillisecs": 0,
+        "startValue": 0,
+        "countValue": 0,
+        "displayResults": "Default",
+        "itemNames": "name,key",
+        "onError": "ON_ERROR_CONTINUE",
+        "unids": "",
+        "name": "",
+        "x": 339,
+        "y": 73.19999694824219,
+        "wires": [
+            [
+                "2267e9ef.b4695e"
+            ]
+        ]
+    },
+    {
+        "id": "48069e9a.5e7d18",
+        "type": "inject",
+        "z": "6e133d84.5c5714",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 129,
+        "y": 74.19999694824219,
+        "wires": [
+            [
+                "491ad777.f80928"
+            ]
+        ]
+    },
+    {
+        "id": "dfbc4fe6.15219",
+        "type": "comment",
+        "z": "6e133d84.5c5714",
+        "name": "Get States",
+        "info": "",
+        "x": 95.5,
+        "y": 25.800003051757812,
+        "wires": []
+    },
+    {
+        "id": "228b2596.3f714a",
+        "type": "comment",
+        "z": "6e133d84.5c5714",
+        "name": "Store in flow, manipulate for getting contacts",
+        "info": "",
+        "x": 607.4999847412109,
+        "y": 26.800003051757812,
+        "wires": []
+    },
+    {
+        "id": "952010e4.2beaf",
+        "type": "comment",
+        "z": "6e133d84.5c5714",
+        "name": "Build query",
+        "info": "",
+        "x": 413.5,
+        "y": 134.8000030517578,
+        "wires": []
+    },
+    {
+        "id": "718910c1.7e5d88",
+        "type": "comment",
+        "z": "6e133d84.5c5714",
+        "name": "Put totals in msg.paths",
+        "info": "",
+        "x": 878.4999847412109,
+        "y": 130.8000030517578,
+        "wires": []
+    },
+    {
+        "id": "217fec75.a93a1c",
+        "type": "comment",
+        "z": "6e133d84.5c5714",
+        "name": "Wait for completion",
+        "info": "",
+        "x": 158.5,
+        "y": 234.7999725341797,
+        "wires": []
+    },
+    {
+        "id": "ce0d4344.037c8",
+        "type": "function",
+        "z": "6e133d84.5c5714",
+        "name": "Format",
+        "func": "var chartData = {};\nchartData.series = [\"Contacts\"];\n// This will need subsequently wrapping in another array\nvar data = [];\nvar labels = [];\n// Sort response alphabetically by state\n// Currently it's sorted by the order each was returned\nmsg.paths = Object.entries(msg.paths).sort().reduce( (o,[k,v]) => (o[k]=v,o), {} );\nfor (var elem in msg.paths) {\n    data.push(msg.paths[elem].count);\n    labels.push(msg.paths[elem].state);\n}\nchartData.data = [];\nchartData.data.push(data);\nchartData.labels = labels;\nmsg.payload = [];\nmsg.payload.push(chartData);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 354.49998474121094,
+        "y": 297.40000915527344,
+        "wires": [
+            [
+                "1741555.85f95ab",
+                "206abcd.f24e3c4"
+            ]
+        ]
+    },
+    {
+        "id": "1741555.85f95ab",
+        "type": "debug",
+        "z": "6e133d84.5c5714",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 530.4999847412109,
+        "y": 369.59999084472656,
+        "wires": []
+    },
+    {
+        "id": "3d16ba35.689526",
+        "type": "worldmap",
+        "z": "6d533073.7afe6",
+        "name": "",
+        "lat": "",
+        "lon": "",
+        "zoom": "5",
+        "layer": "OSM",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "show",
+        "layers": "show",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "false",
+        "coords": "deg",
+        "path": "/worldmapiss",
+        "x": 702,
+        "y": 415,
+        "wires": []
+    },
+    {
+        "id": "200c8fe4.10fc8",
+        "type": "function",
+        "z": "6d533073.7afe6",
+        "name": "Generate Plotter",
+        "func": "msg.payload.name=\"ISS\";\nmsg.payload.icon=\"iss\";\nmsg.payload.iconColor=\"#FFDC02\";\nvar weblink={};\nweblink.name=\"ISS\";\nweblink.url=\"https://www.nasa.gov/mission_pages/station/main/index.html\";\nweblink.target=\"_new\";\nmsg.payload.weblink = weblink;\nmsg.payload.command = {};\nmsg.payload.command.lat = msg.payload.lat;\nmsg.payload.command.lon = msg.payload.lon;\n\n// Now set content for notes doc\nmsg.DDB_itemValuesById = [];\nmsg.DDB_itemValuesById[0] = {};\nmsg.DDB_itemValuesById[0].form = \"ISS_Data\";\nmsg.DDB_itemValuesById[0].lat = msg.payload.lat;\nmsg.DDB_itemValuesById[0].lon = msg.payload.lon;\n// Set or increment flow count\nif (flow.get('count') > 1) {\n    flow.set('count',0);\n} else {\n    flow.set('count',flow.get('count') + 1);\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 504,
+        "y": 456,
+        "wires": [
+            [
+                "3d16ba35.689526",
+                "6d58f22b.6a4dcc"
+            ]
+        ]
+    },
+    {
+        "id": "a72eaf74.c1f99",
+        "type": "iss-location",
+        "z": "6d533073.7afe6",
+        "method": "ISSLocationNow",
+        "name": "",
+        "x": 305,
+        "y": 457,
+        "wires": [
+            [
+                "200c8fe4.10fc8"
+            ]
+        ]
+    },
+    {
+        "id": "3b5d9e49.14b272",
+        "type": "D10_createDocuments",
+        "z": "6d533073.7afe6",
+        "application": "8d5cc2c9.642e6",
+        "itemValuesById": "",
+        "onError": "ON_ERROR_CONTINUE",
+        "name": "",
+        "x": 308.1000061035156,
+        "y": 540.2000122070312,
+        "wires": [
+            [
+                "8f979162.4e2e3"
+            ]
+        ]
+    },
+    {
+        "id": "2087f1e0.5db44e",
+        "type": "D10_deleteDocuments",
+        "z": "6d533073.7afe6",
+        "application": "8d5cc2c9.642e6",
+        "queryOrId": "query",
+        "documentsOrItems": "documents",
+        "query": "Form = 'ISS_Data'",
+        "defaultOptions": true,
+        "maxViewEntries": 0,
+        "maxDocuments": 0,
+        "maxMillisecs": 0,
+        "startValue": 0,
+        "countValue": 0,
+        "displayResults": "All",
+        "itemNames": "",
+        "onError": "ON_ERROR_CONTINUE",
+        "unids": "",
+        "name": "",
+        "x": 638.0999755859375,
+        "y": 59.20001220703125,
+        "wires": [
+            [
+                "73837dc5.083c64"
+            ]
+        ]
+    },
+    {
+        "id": "fcafe2b2.a2749",
+        "type": "inject",
+        "z": "6d533073.7afe6",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 442.0999755859375,
+        "y": 59.00000762939453,
+        "wires": [
+            [
+                "2087f1e0.5db44e"
+            ]
+        ]
+    },
+    {
+        "id": "73837dc5.083c64",
+        "type": "debug",
+        "z": "6d533073.7afe6",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 699.1000366210938,
+        "y": 125.00001525878906,
+        "wires": []
+    },
+    {
+        "id": "721de19d.6b12c",
+        "type": "comment",
+        "z": "6d533073.7afe6",
+        "name": "STARTUP: Reset ISS Data",
+        "info": "",
+        "x": 465.1000061035156,
+        "y": 23.00000762939453,
+        "wires": []
+    },
+    {
+        "id": "8ad592b8.152cd",
+        "type": "worldmap in",
+        "z": "6d533073.7afe6",
+        "name": "",
+        "path": "/worldmapiss_tracking",
+        "x": 131.10000610351562,
+        "y": 677,
+        "wires": [
+            [
+                "4ae82c0a.72c5c4"
+            ]
+        ]
+    },
+    {
+        "id": "4ae82c0a.72c5c4",
+        "type": "D10_getDocuments",
+        "z": "6d533073.7afe6",
+        "application": "8d5cc2c9.642e6",
+        "queryOrId": "query",
+        "query": "Form = 'ISS_Data'",
+        "defaultOptions": true,
+        "maxViewEntries": 0,
+        "maxDocuments": 0,
+        "maxMillisecs": 0,
+        "startValue": 0,
+        "countValue": 0,
+        "displayResults": "All",
+        "itemNames": "lat,lon",
+        "onError": "ON_ERROR_CONTINUE",
+        "unids": "",
+        "name": "",
+        "x": 357.1000061035156,
+        "y": 676,
+        "wires": [
+            [
+                "7629a31b.df531c"
+            ]
+        ]
+    },
+    {
+        "id": "7629a31b.df531c",
+        "type": "bigsplitter",
+        "z": "6d533073.7afe6",
+        "name": "",
+        "property": "DDB_docs",
+        "x": 120.10006713867188,
+        "y": 750,
+        "wires": [
+            [
+                "2b8a2074.beb11"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2b8a2074.beb11",
+        "type": "function",
+        "z": "6d533073.7afe6",
+        "name": "Generate Plotter",
+        "func": "msg.payload.name=\"ISS_\" + msg.payload['@created'].data;\nmsg.payload.icon=\"iss\";\nmsg.payload.iconColor=\"#FFDC02\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 323,
+        "y": 744,
+        "wires": [
+            [
+                "bbb7c1b8.b68b2"
+            ]
+        ]
+    },
+    {
+        "id": "9e09b71e.bf4988",
+        "type": "inject",
+        "z": "6d533073.7afe6",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 121.10000610351562,
+        "y": 635,
+        "wires": [
+            [
+                "4ae82c0a.72c5c4"
+            ]
+        ]
+    },
+    {
+        "id": "bbb7c1b8.b68b2",
+        "type": "worldmap",
+        "z": "6d533073.7afe6",
+        "name": "",
+        "lat": "",
+        "lon": "",
+        "zoom": "2",
+        "layer": "OSM",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "hide",
+        "hiderightclick": "false",
+        "coords": "deg",
+        "path": "worldmapiss_tracking",
+        "x": 631,
+        "y": 686,
+        "wires": []
+    },
+    {
+        "id": "6d58f22b.6a4dcc",
+        "type": "switch",
+        "z": "6d533073.7afe6",
+        "name": "",
+        "property": "count",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 108.10000610351562,
+        "y": 541,
+        "wires": [
+            [
+                "3b5d9e49.14b272"
+            ]
+        ]
+    },
+    {
+        "id": "3287fcf6.4ceb84",
+        "type": "inject",
+        "z": "6d533073.7afe6",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "30",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 119.10000610351562,
+        "y": 456,
+        "wires": [
+            [
+                "a72eaf74.c1f99"
+            ]
+        ]
+    },
+    {
+        "id": "cc63506.fefd3b",
+        "type": "worldmap in",
+        "z": "6d533073.7afe6",
+        "name": "",
+        "path": "/worldmapiss",
+        "x": 122,
+        "y": 376,
+        "wires": [
+            [
+                "35a91bb6.65dc64"
+            ]
+        ]
+    },
+    {
+        "id": "35a91bb6.65dc64",
+        "type": "iss-location",
+        "z": "6d533073.7afe6",
+        "method": "ISSLocationNow",
+        "name": "",
+        "x": 304,
+        "y": 376.0000057220459,
+        "wires": [
+            [
+                "29177cfb.e0c9e4"
+            ]
+        ]
+    },
+    {
+        "id": "29177cfb.e0c9e4",
+        "type": "function",
+        "z": "6d533073.7afe6",
+        "name": "Generate Plotter",
+        "func": "msg.payload.name=\"ISS\";\nmsg.payload.icon=\"iss\";\nmsg.payload.iconColor=\"#FFDC02\";\nvar weblink={};\nweblink.name=\"ISS\";\nweblink.url=\"https://www.nasa.gov/mission_pages/station/main/index.html\";\nweblink.target=\"_new\";\nmsg.payload.weblink = weblink;\nmsg.payload.command = {};\nmsg.payload.command.lat = msg.payload.lat;\nmsg.payload.command.lon = msg.payload.lon;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 493.10003662109375,
+        "y": 377,
+        "wires": [
+            [
+                "3d16ba35.689526"
+            ]
+        ]
+    },
+    {
+        "id": "8f979162.4e2e3",
+        "type": "function",
+        "z": "6d533073.7afe6",
+        "name": "Generate Plotter",
+        "func": "var now = new Date();\nvar obj = {};\nobj.name=\"ISS_\" + now.toISOString();\nobj.icon=\"iss\";\nobj.iconColor=\"#FFDC02\";\nobj.lon = msg.payload.lon;\nobj.lat = msg.payload.lat;\nmsg.payload = obj;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 527.1000671386719,
+        "y": 541,
+        "wires": [
+            [
+                "bbb7c1b8.b68b2"
+            ]
+        ]
+    },
+    {
+        "id": "e76b9508.ec3eb8",
+        "type": "ICCommunitiesGet",
+        "z": "737e7a79.2aeb44",
+        "name": "",
+        "server": "ebe2f5c.4368b08",
+        "target": "MyCommunities",
+        "communityTag": "",
+        "searchString": "Engage",
+        "communityId": "",
+        "userId": "",
+        "showMembers": false,
+        "showApplications": false,
+        "showLogo": false,
+        "showWidgets": false,
+        "x": 324.1000061035156,
+        "y": 57.40000915527344,
+        "wires": [
+            [
+                "9fad7523.8f6fb8"
+            ]
+        ]
+    },
+    {
+        "id": "8d4122e4.d001a",
+        "type": "fs-ops-delete",
+        "z": "737e7a79.2aeb44",
+        "name": "",
+        "path": "",
+        "pathType": "str",
+        "filename": "filename",
+        "filenameType": "msg",
+        "x": 404,
+        "y": 347,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9fad7523.8f6fb8",
+        "type": "function",
+        "z": "737e7a79.2aeb44",
+        "name": "",
+        "func": "if (msg.payload === null) {\n    node.warn('Community not found!');\n} else {\n    flow.set('communityId', msg.payload[0].Uuid);\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 527,
+        "y": 57,
+        "wires": [
+            [
+                "27113bd7.c54ee4"
+            ]
+        ]
+    },
+    {
+        "id": "247a3776.c801e8",
+        "type": "inject",
+        "z": "737e7a79.2aeb44",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 116,
+        "y": 58,
+        "wires": [
+            [
+                "e76b9508.ec3eb8"
+            ]
+        ]
+    },
+    {
+        "id": "187de727.52c4e9",
+        "type": "debug",
+        "z": "737e7a79.2aeb44",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 537.0000152587891,
+        "y": 462,
+        "wires": []
+    },
+    {
+        "id": "c336a033.db9c2",
+        "type": "ICProfilesGet",
+        "z": "737e7a79.2aeb44",
+        "name": "",
+        "server": "ebe2f5c.4368b08",
+        "target": "myself",
+        "targetValue": "",
+        "mytags": "",
+        "mykeywords": "",
+        "freesyntax": "",
+        "photoBytes": false,
+        "audio": false,
+        "links": true,
+        "x": 337.0000114440918,
+        "y": 463,
+        "wires": [
+            [
+                "187de727.52c4e9"
+            ]
+        ]
+    },
+    {
+        "id": "8b10d6a1.2ce768",
+        "type": "inject",
+        "z": "737e7a79.2aeb44",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 117,
+        "y": 463.00000286102295,
+        "wires": [
+            [
+                "c336a033.db9c2"
+            ]
+        ]
+    },
+    {
+        "id": "c411458e.be3cf8",
+        "type": "debug",
+        "z": "737e7a79.2aeb44",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 681.0000610351562,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "e81abb48.aebff8",
+        "type": "function",
+        "z": "737e7a79.2aeb44",
+        "name": "",
+        "func": "var value = \"My name \" + msg.payload.name + \" and my building is \" + msg.payload.allAttributes['x-office']['x-building'];\nmsg.payload = value;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 513.0000305175781,
+        "y": 539.7999877929688,
+        "wires": [
+            [
+                "c411458e.be3cf8"
+            ]
+        ]
+    },
+    {
+        "id": "e54ecb92.a4f808",
+        "type": "ICProfilesGet",
+        "z": "737e7a79.2aeb44",
+        "name": "",
+        "server": "ebe2f5c.4368b08",
+        "target": "myself",
+        "targetValue": "",
+        "mytags": "",
+        "mykeywords": "",
+        "freesyntax": "",
+        "photoBytes": false,
+        "audio": false,
+        "links": false,
+        "x": 330,
+        "y": 541,
+        "wires": [
+            [
+                "e81abb48.aebff8"
+            ]
+        ]
+    },
+    {
+        "id": "a46ab352.d91f8",
+        "type": "inject",
+        "z": "737e7a79.2aeb44",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 118,
+        "y": 541,
+        "wires": [
+            [
+                "e54ecb92.a4f808"
+            ]
+        ]
+    },
+    {
+        "id": "8845453c.e55e48",
+        "type": "comment",
+        "z": "737e7a79.2aeb44",
+        "name": "STARTUP: Get Community to Post To",
+        "info": "",
+        "x": 170,
+        "y": 21,
+        "wires": []
+    },
+    {
+        "id": "3f05d50f.3c9ada",
+        "type": "comment",
+        "z": "737e7a79.2aeb44",
+        "name": "Save file to Docker",
+        "info": "",
+        "x": 104,
+        "y": 190,
+        "wires": []
+    },
+    {
+        "id": "700b1dad.bc3114",
+        "type": "comment",
+        "z": "737e7a79.2aeb44",
+        "name": "Upload to Connections",
+        "info": "",
+        "x": 311,
+        "y": 221,
+        "wires": []
+    },
+    {
+        "id": "66c716bc.d1bc78",
+        "type": "comment",
+        "z": "737e7a79.2aeb44",
+        "name": "Delete from Docker",
+        "info": "",
+        "x": 425,
+        "y": 312,
+        "wires": []
+    },
+    {
+        "id": "9f871d3f.880d7",
+        "type": "comment",
+        "z": "737e7a79.2aeb44",
+        "name": "Community not set",
+        "info": "",
+        "x": 682,
+        "y": 135,
+        "wires": []
+    },
+    {
+        "id": "4d94cbfd.538e34",
+        "type": "comment",
+        "z": "737e7a79.2aeb44",
+        "name": "Send response",
+        "info": "",
+        "x": 670,
+        "y": 268,
+        "wires": []
+    },
+    {
+        "id": "7465c3c7.56d36c",
+        "type": "comment",
+        "z": "737e7a79.2aeb44",
+        "name": "Get My Profile",
+        "info": "",
+        "x": 101,
+        "y": 419,
+        "wires": []
+    },
+    {
+        "id": "8e79f2c0.84b0a",
+        "type": "comment",
+        "z": "737e7a79.2aeb44",
+        "name": "Parse my Profile",
+        "info": "",
+        "x": 111,
+        "y": 502,
+        "wires": []
+    },
+    {
+        "id": "7c80f51d.c124cc",
+        "type": "comment",
+        "z": "6d533073.7afe6",
+        "name": "Map ISS Current Position on Load",
+        "info": "",
+        "x": 155,
+        "y": 343,
+        "wires": []
+    },
+    {
+        "id": "2b3ac065.bdc1",
+        "type": "comment",
+        "z": "6d533073.7afe6",
+        "name": "Map States and Contact Totals",
+        "info": "",
+        "x": 142,
+        "y": 178,
+        "wires": []
+    },
+    {
+        "id": "168f9705.76ba29",
+        "type": "comment",
+        "z": "6d533073.7afe6",
+        "name": "Map ISS Current Position Periodically",
+        "info": "",
+        "x": 162,
+        "y": 421,
+        "wires": []
+    },
+    {
+        "id": "1da2a9dd.25cdf6",
+        "type": "comment",
+        "z": "6d533073.7afe6",
+        "name": "Every minute, write to Node-Demo Db",
+        "info": "",
+        "x": 165,
+        "y": 499,
+        "wires": []
+    },
+    {
+        "id": "758fa86a.895028",
+        "type": "comment",
+        "z": "6d533073.7afe6",
+        "name": "And Update Ongoing Tracker",
+        "info": "",
+        "x": 532,
+        "y": 503,
+        "wires": []
+    },
+    {
+        "id": "cdc7680c.a1a108",
+        "type": "comment",
+        "z": "6d533073.7afe6",
+        "name": "Map ISS Positions from Node-Demo Db",
+        "info": "",
+        "x": 173,
+        "y": 596,
+        "wires": []
+    },
+    {
+        "id": "5c32d777.f153f8",
+        "type": "function",
+        "z": "6e133d84.5c5714",
+        "name": "",
+        "func": "msg.DDB_query = \"State = '\" + msg.payload + \"'\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 94,
+        "y": 489,
+        "wires": [
+            [
+                "16afacb4.6ec803"
+            ]
+        ]
+    },
+    {
+        "id": "16afacb4.6ec803",
+        "type": "D10_getDocuments",
+        "z": "6e133d84.5c5714",
+        "application": "8d5cc2c9.642e6",
+        "queryOrId": "query",
+        "query": "",
+        "defaultOptions": true,
+        "maxViewEntries": 0,
+        "maxDocuments": 0,
+        "maxMillisecs": 0,
+        "startValue": 0,
+        "countValue": 0,
+        "displayResults": "All",
+        "itemNames": "city",
+        "onError": "ON_ERROR_CONTINUE",
+        "unids": "",
+        "name": "",
+        "x": 274,
+        "y": 488,
+        "wires": [
+            [
+                "b4ed3b87.ff7aa8"
+            ]
+        ]
+    },
+    {
+        "id": "b4ed3b87.ff7aa8",
+        "type": "function",
+        "z": "6e133d84.5c5714",
+        "name": "",
+        "func": "if (msg.DDB_result.documentRange.total === 0) {\n    msg.payload = \"No documents for this state\";\n    return [msg, null];\n} else {\n    var totals = {};\n    for (var elem in msg.DDB_docs) {\n        var city = msg.DDB_docs[elem].city;\n        if (totals.hasOwnProperty(city)) {\n            totals[city] = totals[city] + 1;\n        } else {\n            totals[city] = 1;\n        }\n    }\n    msg.totals = totals;\n    return [null, msg];\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 453,
+        "y": 488,
+        "wires": [
+            [
+                "2eae87ca.dc1388"
+            ],
+            [
+                "1a184d83.a3eb02"
+            ]
+        ]
+    },
+    {
+        "id": "2eae87ca.dc1388",
+        "type": "ui_toast",
+        "z": "6e133d84.5c5714",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "topic": "",
+        "name": "",
+        "x": 651,
+        "y": 467,
+        "wires": []
+    },
+    {
+        "id": "28f986cb.1769da",
+        "type": "comment",
+        "z": "6e133d84.5c5714",
+        "name": "No docs",
+        "info": "",
+        "x": 616,
+        "y": 424,
+        "wires": []
+    },
+    {
+        "id": "70121701.b086b8",
+        "type": "comment",
+        "z": "6e133d84.5c5714",
+        "name": "Load State dropdown",
+        "info": "",
+        "x": 154,
+        "y": 370,
+        "wires": []
+    },
+    {
+        "id": "eecf362d.c97e58",
+        "type": "comment",
+        "z": "6e133d84.5c5714",
+        "name": "State drop-down changed",
+        "info": "",
+        "x": 152,
+        "y": 450,
+        "wires": []
+    },
+    {
+        "id": "1a184d83.a3eb02",
+        "type": "function",
+        "z": "6e133d84.5c5714",
+        "name": "Format",
+        "func": "var chartData = {};\nchartData.series = [\"Contacts\"];\n// This will need subsequently wrapping in another array\nvar data = [];\nvar labels = [];\n// Sort response alphabetically by state\n// Currently it's sorted by the order each was returned\nmsg.totals = Object.entries(msg.totals).sort().reduce( (o,[k,v]) => (o[k]=v,o), {} );\nfor (var elem in msg.totals) {\n    data.push(msg.totals[elem]);\n    labels.push(elem);\n}\nchartData.data = [];\nchartData.data.push(data);\nchartData.labels = labels;\nmsg.payload = [];\nmsg.payload.push(chartData);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 167,
+        "y": 557,
+        "wires": [
+            [
+                "5b0ed89f.ea4658",
+                "1741555.85f95ab"
+            ]
+        ]
+    },
+    {
+        "id": "5b0ed89f.ea4658",
+        "type": "ui_chart",
+        "z": "6e133d84.5c5714",
+        "name": "Contacts By City",
+        "group": "c98f74b.c93b288",
+        "order": 3,
+        "width": "18",
+        "height": "8",
+        "label": "Contacts By City",
+        "chartType": "bar",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Retrieving data",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 388,
+        "y": 556,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dbfd229f.6769f",
+        "type": "watch",
+        "z": "a7bd6505.eb6c68",
+        "name": "Watch for data",
+        "files": "/tmp",
+        "recursive": "",
+        "x": 93.5,
+        "y": 125,
+        "wires": [
+            [
+                "cc21a274.8b681"
+            ]
+        ]
+    },
+    {
+        "id": "c46c83fd.76096",
+        "type": "csv",
+        "z": "a7bd6505.eb6c68",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "x": 420.1000061035156,
+        "y": 125,
+        "wires": [
+            [
+                "2a03b23e.3e1f9e"
+            ]
+        ]
+    },
+    {
+        "id": "cc21a274.8b681",
+        "type": "file in",
+        "z": "a7bd6505.eb6c68",
+        "name": "",
+        "filename": "",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 263.10000228881836,
+        "y": 125,
+        "wires": [
+            [
+                "c46c83fd.76096"
+            ]
+        ]
+    },
+    {
+        "id": "4e21d855.4df348",
+        "type": "catch",
+        "z": "a7bd6505.eb6c68",
+        "name": "",
+        "scope": [
+            "dbfd229f.6769f"
+        ],
+        "uncaught": false,
+        "x": 80.10000228881836,
+        "y": 287.00000190734863,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6b7fd5d1.606b7c",
+        "type": "comment",
+        "z": "a7bd6505.eb6c68",
+        "name": "Move will trigger change to folder, triggering watch for data node again",
+        "info": "",
+        "x": 281.1000061035156,
+        "y": 243.00000095367432,
+        "wires": []
+    },
+    {
+        "id": "e58bb3cf.e5ed1",
+        "type": "comment",
+        "z": "a7bd6505.eb6c68",
+        "name": "Save to fisk as CSV",
+        "info": "",
+        "x": 113.10000610351562,
+        "y": 407,
+        "wires": []
+    },
+    {
+        "id": "2a03b23e.3e1f9e",
+        "type": "function",
+        "z": "a7bd6505.eb6c68",
+        "name": "Convert csv to JSON doc",
+        "func": "msg.DDB_itemValues = [];\nmsg.DDB_itemValues[0] = {};\nmsg.DDB_itemValues[0].name='form';\nmsg.DDB_itemValues[0].value = 'Contact';\nmsg.DDB_itemValues[1] = {};\nmsg.DDB_itemValues[1].name='firstName';\nmsg.DDB_itemValues[1].value = msg.payload.col1;\nmsg.DDB_itemValues[2] = {};\nmsg.DDB_itemValues[2].name='lastname';\nmsg.DDB_itemValues[2].value = msg.payload.col2;\nmsg.DDB_itemValues[3] = {};\nmsg.DDB_itemValues[3].name='email';\nmsg.DDB_itemValues[3].value = msg.payload.col3;\nmsg.DDB_itemValues[4] = {};\nmsg.DDB_itemValues[4].name='state';\nmsg.DDB_itemValues[4].value = msg.payload.col4;\nmsg.DDB_itemValues[5] = {};\nmsg.DDB_itemValues[5].name='city';\nmsg.DDB_itemValues[5].value = msg.payload.col5;\nmsg.DDB_itemValues[6] = {};\nmsg.DDB_itemValues[6].name='Id';\nvar name = 'CN=' + msg.payload.col1 + ' ' + msg.payload.col2 + '/O=Renovations';\nmsg.DDB_itemValues[6].value = name;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 225.10000610351562,
+        "y": 183.00000286102295,
+        "wires": [
+            [
+                "f0883f5a.7815c"
+            ]
+        ]
+    },
+    {
+        "id": "f0883f5a.7815c",
+        "type": "D10_documentMgr",
+        "z": "a7bd6505.eb6c68",
+        "application": "8d5cc2c9.642e6",
+        "documentOp": "create",
+        "unid": "",
+        "itemNames": "",
+        "itemValues": "",
+        "name": "Create Document in Node-Demo",
+        "x": 540.1000061035156,
+        "y": 182.80000114440918,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6bcebe6d.dd0bc",
+        "type": "comment",
+        "z": "a7bd6505.eb6c68",
+        "name": "Use bigsplitter and wait-paths to move file at end of processing",
+        "info": "",
+        "x": 240.10000610351562,
+        "y": 81.20000457763672,
+        "wires": []
+    },
+    {
+        "id": "11df3a83.586155",
+        "type": "comment",
+        "z": "a7bd6505.eb6c68",
+        "name": "Instructions",
+        "info": " - Create new file\n - Add data for: firstName,lastName, email,state,city\n - Save as node_demo_data.csv \n - Issue command `docker cp your_directory/node_demo.csv your_container_name:/tmp`\n - Check database for newly-created document(s)",
+        "x": 90.10000610351562,
+        "y": 42.20000648498535,
+        "wires": []
+    }
+]
