@@ -12,13 +12,14 @@ RUN npm install --save axios
 RUN	npm install --save domino-domino-db-1.2.0.tgz
 RUN	npm install --save node-red-contrib-dominodb
 RUN	npm install --save node-red-contrib-ibmconnections
+RUN npm install --save node-red-contrib-fullsplitter
 RUN npm install --save node-red-contrib-bigsplitter
 RUN npm install --save node-red-contrib-excel
 RUN npm install --save node-red-contrib-fs-ops
 RUN npm install --save node-red-contrib-iss-location
 RUN npm install --save node-red-contrib-wait-paths
 RUN npm install --save node-red-contrib-web-worldmap
-RUN npm install --save node-red-contrib-dashboard
+RUN npm install --save node-red-dashboard
 RUN npm install --save node-red-contrib-json2csv
 	
 COPY dominoTheme.css /data

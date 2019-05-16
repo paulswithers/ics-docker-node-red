@@ -38,7 +38,7 @@
         "id": "8d5cc2c9.642e6",
         "type": "dominodb",
         "z": "",
-        "D10_server": "172.18.0.2",
+        "D10_server": "172.17.0.2",
         "D10_db": "node-demo.nsf",
         "D10_port": "3002",
         "D10_isSecure": false,
@@ -63,6 +63,7 @@
         "z": "",
         "name": "By State",
         "icon": "face",
+        "order": 2,
         "disabled": false,
         "hidden": false
     },
@@ -178,7 +179,7 @@
         "z": "",
         "name": "By City",
         "icon": "location_city",
-        "order": 2,
+        "order": 1,
         "disabled": false,
         "hidden": false
     },
@@ -465,8 +466,8 @@
         "z": "6d533073.7afe6",
         "name": "",
         "scope": null,
-        "x": 84,
-        "y": 30,
+        "x": 780.0000152587891,
+        "y": 199,
         "wires": [
             [
                 "62223c3a.ed2224"
@@ -483,8 +484,8 @@
         "console": false,
         "tostatus": false,
         "complete": "true",
-        "x": 248,
-        "y": 31,
+        "x": 948,
+        "y": 199,
         "wires": []
     },
     {
@@ -642,7 +643,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 109,
-        "y": 144,
+        "y": 166,
         "wires": [
             [
                 "4501ea87.984834"
@@ -657,8 +658,8 @@
         "func": "if (flow.get('communityId') === undefined) {\n    node.error('Community not set!');\n    msg.payload = 'Community not set!';\n    return [null,msg];\n} else {\n    var result           = '';\n    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';\n    var charactersLength = characters.length;\n    for ( var i = 0; i < 10; i++ ) {\n        result += characters.charAt(Math.floor(Math.random() * charactersLength));\n    }\n    msg.filepath = result + \".xlsx\"; // for creation\n    msg.filename = result + \".xlsx\"; // for Connections\n    msg.communityId = flow.get('communityId');\n    return [msg,null];\n}",
         "outputs": 2,
         "noerr": 0,
-        "x": 300,
-        "y": 144,
+        "x": 337,
+        "y": 166,
         "wires": [
             [
                 "2aff9e14.5331a2"
@@ -674,8 +675,8 @@
         "z": "737e7a79.2aeb44",
         "name": "",
         "file": "",
-        "x": 478,
-        "y": 138,
+        "x": 559,
+        "y": 160,
         "wires": [
             [
                 "b954335f.5e657"
@@ -744,7 +745,7 @@
         "fileDesc": "",
         "fileFolder": "",
         "x": 292,
-        "y": 266,
+        "y": 305,
         "wires": [
             [
                 "4e39ec88.571d44",
@@ -762,8 +763,8 @@
         "chunk": false,
         "sendError": false,
         "encoding": "none",
-        "x": 93,
-        "y": 238,
+        "x": 103,
+        "y": 304,
         "wires": [
             [
                 "a1720464.58f6c8"
@@ -777,8 +778,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 671,
-        "y": 233,
+        "x": 720,
+        "y": 264,
         "wires": []
     },
     {
@@ -789,8 +790,8 @@
         "func": "msg.payload = msg.fileUrl;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 483,
-        "y": 236,
+        "x": 508,
+        "y": 267,
         "wires": [
             [
                 "e80aa724.09e7d8"
@@ -836,8 +837,8 @@
         "func": "try {\n    msg.payload = error.msg;\n} catch (error) {\n    \n}\nmsg.statusCode = 500;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 647,
-        "y": 172,
+        "x": 754,
+        "y": 175,
         "wires": [
             [
                 "e80aa724.09e7d8"
@@ -1215,8 +1216,8 @@
         "hiderightclick": "false",
         "coords": "deg",
         "path": "/worldmapiss",
-        "x": 702,
-        "y": 415,
+        "x": 782,
+        "y": 457,
         "wires": []
     },
     {
@@ -1227,8 +1228,8 @@
         "func": "msg.payload.name=\"ISS\";\nmsg.payload.icon=\"iss\";\nmsg.payload.iconColor=\"#FFDC02\";\nvar weblink={};\nweblink.name=\"ISS\";\nweblink.url=\"https://www.nasa.gov/mission_pages/station/main/index.html\";\nweblink.target=\"_new\";\nmsg.payload.weblink = weblink;\nmsg.payload.command = {};\nmsg.payload.command.lat = msg.payload.lat;\nmsg.payload.command.lon = msg.payload.lon;\n\n// Now set content for notes doc\nmsg.DDB_itemValuesById = [];\nmsg.DDB_itemValuesById[0] = {};\nmsg.DDB_itemValuesById[0].form = \"ISS_Data\";\nmsg.DDB_itemValuesById[0].lat = msg.payload.lat;\nmsg.DDB_itemValuesById[0].lon = msg.payload.lon;\n// Set or increment flow count\nif (flow.get('count') > 1) {\n    flow.set('count',0);\n} else {\n    flow.set('count',flow.get('count') + 1);\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 504,
-        "y": 456,
+        "x": 513,
+        "y": 483,
         "wires": [
             [
                 "3d16ba35.689526",
@@ -1242,8 +1243,8 @@
         "z": "6d533073.7afe6",
         "method": "ISSLocationNow",
         "name": "",
-        "x": 305,
-        "y": 457,
+        "x": 307,
+        "y": 483,
         "wires": [
             [
                 "200c8fe4.10fc8"
@@ -1258,8 +1259,8 @@
         "itemValuesById": "",
         "onError": "ON_ERROR_CONTINUE",
         "name": "",
-        "x": 308.1000061035156,
-        "y": 540.2000122070312,
+        "x": 308.10003662109375,
+        "y": 568.2000122070312,
         "wires": [
             [
                 "8f979162.4e2e3"
@@ -1345,7 +1346,7 @@
         "name": "",
         "path": "/worldmapiss_tracking",
         "x": 131.10000610351562,
-        "y": 677,
+        "y": 733.0000305175781,
         "wires": [
             [
                 "4ae82c0a.72c5c4"
@@ -1370,8 +1371,8 @@
         "onError": "ON_ERROR_CONTINUE",
         "unids": "",
         "name": "",
-        "x": 357.1000061035156,
-        "y": 676,
+        "x": 363.10003662109375,
+        "y": 734.0000305175781,
         "wires": [
             [
                 "7629a31b.df531c"
@@ -1384,8 +1385,8 @@
         "z": "6d533073.7afe6",
         "name": "",
         "property": "DDB_docs",
-        "x": 120.10006713867188,
-        "y": 750,
+        "x": 124.10006713867188,
+        "y": 794,
         "wires": [
             [
                 "2b8a2074.beb11"
@@ -1401,8 +1402,8 @@
         "func": "msg.payload.name=\"ISS_\" + msg.payload['@created'].data;\nmsg.payload.icon=\"iss\";\nmsg.payload.iconColor=\"#FFDC02\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 323,
-        "y": 744,
+        "x": 326,
+        "y": 795.0000305175781,
         "wires": [
             [
                 "bbb7c1b8.b68b2"
@@ -1421,8 +1422,8 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 121.10000610351562,
-        "y": 635,
+        "x": 122.10000610351562,
+        "y": 680.0000305175781,
         "wires": [
             [
                 "4ae82c0a.72c5c4"
@@ -1444,8 +1445,8 @@
         "hiderightclick": "false",
         "coords": "deg",
         "path": "worldmapiss_tracking",
-        "x": 631,
-        "y": 686,
+        "x": 665,
+        "y": 741,
         "wires": []
     },
     {
@@ -1465,8 +1466,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 108.10000610351562,
-        "y": 541,
+        "x": 101.10000610351562,
+        "y": 568,
         "wires": [
             [
                 "3b5d9e49.14b272"
@@ -1486,7 +1487,7 @@
         "once": true,
         "onceDelay": 0.1,
         "x": 119.10000610351562,
-        "y": 456,
+        "y": 482,
         "wires": [
             [
                 "a72eaf74.c1f99"
@@ -1499,8 +1500,8 @@
         "z": "6d533073.7afe6",
         "name": "",
         "path": "/worldmapiss",
-        "x": 122,
-        "y": 376,
+        "x": 114,
+        "y": 402,
         "wires": [
             [
                 "35a91bb6.65dc64"
@@ -1513,8 +1514,8 @@
         "z": "6d533073.7afe6",
         "method": "ISSLocationNow",
         "name": "",
-        "x": 304,
-        "y": 376.0000057220459,
+        "x": 313,
+        "y": 402,
         "wires": [
             [
                 "29177cfb.e0c9e4"
@@ -1529,8 +1530,8 @@
         "func": "msg.payload.name=\"ISS\";\nmsg.payload.icon=\"iss\";\nmsg.payload.iconColor=\"#FFDC02\";\nvar weblink={};\nweblink.name=\"ISS\";\nweblink.url=\"https://www.nasa.gov/mission_pages/station/main/index.html\";\nweblink.target=\"_new\";\nmsg.payload.weblink = weblink;\nmsg.payload.command = {};\nmsg.payload.command.lat = msg.payload.lat;\nmsg.payload.command.lon = msg.payload.lon;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 493.10003662109375,
-        "y": 377,
+        "x": 529.1000366210938,
+        "y": 402,
         "wires": [
             [
                 "3d16ba35.689526"
@@ -1545,8 +1546,8 @@
         "func": "var now = new Date();\nvar obj = {};\nobj.name=\"ISS_\" + now.toISOString();\nobj.icon=\"iss\";\nobj.iconColor=\"#FFDC02\";\nobj.lon = msg.payload.lon;\nobj.lat = msg.payload.lat;\nmsg.payload = obj;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 527.1000671386719,
-        "y": 541,
+        "x": 542.10009765625,
+        "y": 569,
         "wires": [
             [
                 "bbb7c1b8.b68b2"
@@ -1585,8 +1586,8 @@
         "pathType": "str",
         "filename": "filename",
         "filenameType": "msg",
-        "x": 404,
-        "y": 347,
+        "x": 517,
+        "y": 353,
         "wires": [
             []
         ]
@@ -1772,8 +1773,8 @@
         "z": "737e7a79.2aeb44",
         "name": "Save file to Docker",
         "info": "",
-        "x": 104,
-        "y": 190,
+        "x": 95,
+        "y": 262.00001525878906,
         "wires": []
     },
     {
@@ -1782,8 +1783,8 @@
         "z": "737e7a79.2aeb44",
         "name": "Upload to Connections",
         "info": "",
-        "x": 311,
-        "y": 221,
+        "x": 308,
+        "y": 263,
         "wires": []
     },
     {
@@ -1792,8 +1793,8 @@
         "z": "737e7a79.2aeb44",
         "name": "Delete from Docker",
         "info": "",
-        "x": 425,
-        "y": 312,
+        "x": 538,
+        "y": 317,
         "wires": []
     },
     {
@@ -1802,7 +1803,7 @@
         "z": "737e7a79.2aeb44",
         "name": "Community not set",
         "info": "",
-        "x": 682,
+        "x": 797,
         "y": 135,
         "wires": []
     },
@@ -1812,8 +1813,8 @@
         "z": "737e7a79.2aeb44",
         "name": "Send response",
         "info": "",
-        "x": 670,
-        "y": 268,
+        "x": 748,
+        "y": 299,
         "wires": []
     },
     {
@@ -1842,8 +1843,8 @@
         "z": "6d533073.7afe6",
         "name": "Map ISS Current Position on Load",
         "info": "",
-        "x": 155,
-        "y": 343,
+        "x": 160,
+        "y": 369,
         "wires": []
     },
     {
@@ -1862,8 +1863,8 @@
         "z": "6d533073.7afe6",
         "name": "Map ISS Current Position Periodically",
         "info": "",
-        "x": 162,
-        "y": 421,
+        "x": 165,
+        "y": 447,
         "wires": []
     },
     {
@@ -1872,8 +1873,8 @@
         "z": "6d533073.7afe6",
         "name": "Every minute, write to Node-Demo Db",
         "info": "",
-        "x": 165,
-        "y": 499,
+        "x": 163,
+        "y": 528,
         "wires": []
     },
     {
@@ -1882,18 +1883,18 @@
         "z": "6d533073.7afe6",
         "name": "And Update Ongoing Tracker",
         "info": "",
-        "x": 532,
-        "y": 503,
+        "x": 583,
+        "y": 533,
         "wires": []
     },
     {
         "id": "cdc7680c.a1a108",
         "type": "comment",
         "z": "6d533073.7afe6",
-        "name": "Map ISS Positions from Node-Demo Db",
+        "name": "MAP OF ISS POSITIONS SINCE NODE-RED STARTED",
         "info": "",
-        "x": 173,
-        "y": 596,
+        "x": 229,
+        "y": 629.0000305175781,
         "wires": []
     },
     {
@@ -2144,7 +2145,7 @@
         "id": "e58bb3cf.e5ed1",
         "type": "comment",
         "z": "a7bd6505.eb6c68",
-        "name": "Save to fisk as CSV",
+        "name": "Save to disk as CSV",
         "info": "",
         "x": 113.10000610351562,
         "y": 407,
@@ -2200,6 +2201,56 @@
         "info": " - Create new file\n - Add data for: firstName,lastName, email,state,city\n - Save as node_demo_data.csv \n - Issue command `docker cp your_directory/node_demo.csv your_container_name:/tmp`\n - Check database for newly-created document(s)",
         "x": 90.10000610351562,
         "y": 42.20000648498535,
+        "wires": []
+    },
+    {
+        "id": "f67e314c.5b5d5",
+        "type": "comment",
+        "z": "6d533073.7afe6",
+        "name": "Maps don't seem to work in Firefox",
+        "info": "",
+        "x": 151.5,
+        "y": 33.59999084472656,
+        "wires": []
+    },
+    {
+        "id": "42348738.02f52",
+        "type": "comment",
+        "z": "6d533073.7afe6",
+        "name": "MAP OF CONTACTS BY STATE",
+        "info": "",
+        "x": 140.5,
+        "y": 68.59999084472656,
+        "wires": []
+    },
+    {
+        "id": "8dc8da5d.b080b8",
+        "type": "comment",
+        "z": "6d533073.7afe6",
+        "name": "MAP OF ISS POSITION",
+        "info": "",
+        "x": 130.5,
+        "y": 329.5999755859375,
+        "wires": []
+    },
+    {
+        "id": "d6cc63d8.bdf848",
+        "type": "comment",
+        "z": "6d533073.7afe6",
+        "name": "Get from Node-Demo database",
+        "info": "",
+        "x": 401.49998474121094,
+        "y": 698.5999908447266,
+        "wires": []
+    },
+    {
+        "id": "d551018a.e6d41",
+        "type": "comment",
+        "z": "737e7a79.2aeb44",
+        "name": "Send Excel from JSON to Connections",
+        "info": "## Requires Updated DQL Explorer, Not Included\n\nA button in DQL Explorer does the same kind of thing as the export as JSON button, but instead of displaying on the screen, it sends the JSON here.",
+        "x": 168.5,
+        "y": 126.59999084472656,
         "wires": []
     }
 ]
